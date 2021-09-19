@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="email">e-mail</string>
+    <string name="hint_email">Enter your email address</string>
+    <string name="password">Password</string>
+    <string name="login">Login into account</string>
+    <string name="login_new_account">Login with new Account</string>
+    <string name="shoe_store_app">Shoe Store</string>
+    <string name="welcomeSubTitle">Pick your shoes</string>
+    <string name="letsGo">Let\'s Go</string>
+    <string name="instruction_first">This app shows you a list of shoes</string>
+    <string name="instruction_second">
+        You can see the more information about it in the details screen.\n
+        To do that select an item in the list.
+    </string>
+    <string name="listShoe">Shoe List</string>
+</resources>
