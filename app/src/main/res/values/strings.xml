@@ -14,4 +14,12 @@
         To do that select an item in the list.
     </string>
     <string name="listShoe">Shoe List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="more_details">More Details</string>
+    <string name="logout">Logout</string>
+    <string name="hint_shoe_name">Shoe Name</string>
+    <string name="hint_manufactory_name">Manufactory</string>
+    <string name="hint_shoe_size">Size</string>
+    <string name="description">Description</string>
 </resources>
