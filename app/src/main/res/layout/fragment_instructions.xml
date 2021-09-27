@@ -14,10 +14,43 @@
         android:layout_height="match_parent"
         tools:context=".InstructionsFragment">
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/app_name" />
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tvInstructionTitle"
+                style="@style/titleApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_gravity="center"
+                android:text="@string/app_name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:text="@string/instruction_first" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:text="@string/instruction_second" />
+
+            <Button
+                android:id="@+id/btnShowShoeList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_background"
+                android:textColor="@color/white"
+                android:text="@string/listShoe"/>
+        </LinearLayout>
     </FrameLayout>
 </layout>

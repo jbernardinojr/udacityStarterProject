@@ -24,4 +24,8 @@
     <string name="description">Description</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="welcome">"Welcome "</string>
+    <string name="instructions">Instructions</string>
+    <string name="shoes">Shoes</string>
+    <string name="shoe_detail">Shoe Detail</string>
 </resources>

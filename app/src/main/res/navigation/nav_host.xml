@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.udacity.shoestore.WelcomeFragment"
-        android:label="WelcomeFragment" >
+        android:label="@string/welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_instructionsFragment"
             app:destination="@id/instructionsFragment" />
@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/instructionsFragment"
         android:name="com.udacity.shoestore.InstructionsFragment"
-        android:label="fragment_instructions"
+        android:label="@string/instructions"
         tools:layout="@layout/fragment_instructions" >
         <action
             android:id="@+id/action_instructionsFragment_to_shoeListFragment"
@@ -34,11 +34,17 @@
     <fragment
         android:id="@+id/shoeListFragment"
         android:name="com.udacity.shoestore.ShoeListFragment"
-        android:label="fragment_shoe_list"
+        android:label="@string/shoes"
         tools:layout="@layout/fragment_shoe_list" >
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
-            app:destination="@id/shoeDetailFragment" />
+            app:destination="@id/shoeDetailFragment">
+        <argument
+            android:name="shoe"
+            app:argType="com.udacity.shoestore.models.Shoe"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        </action>
         <argument
             android:name="shoe"
             app:argType="com.udacity.shoestore.models.Shoe"
@@ -48,7 +54,7 @@
     <fragment
         android:id="@+id/shoeDetailFragment"
         android:name="com.udacity.shoestore.ShoeDetailFragment"
-        android:label="ShoeDetailFragment" >
+        android:label="@string/shoe_detail" >
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeListFragment"
             app:destination="@id/shoeListFragment"
@@ -60,5 +66,10 @@
             app:nullable="true"
             android:defaultValue="@null" />
         </action>
+        <argument
+            android:name="shoe"
+            app:argType="com.udacity.shoestore.models.Shoe"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

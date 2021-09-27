@@ -5,34 +5,60 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.viewmodel.ShoeListViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ShoeListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ShoeListFragment : Fragment() {
 
-    private var listShoe = mutableListOf<Shoe?>()
+    private val viewModel: ShoeListViewModel by viewModels()
     private val args: ShoeListFragmentArgs by navArgs()
+
+    private lateinit var binding: FragmentShoeListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        args.shoe.let {
-            listShoe.add(it)
-        }
+    ): View? = FragmentShoeListBinding.inflate(inflater)
+        .apply {
 
-        return inflater.inflate(R.layout.fragment_shoe_list, container, false)
+            lifecycleOwner = viewLifecycleOwner
+            binding = this
+
+            args.shoe?.let { newShoe ->
+                viewModel.updateShoeList(newShoe)
+            }
+
+            binding.fbMoreDetails.setOnClickListener {
+                setupNavigationAction(Shoe(name= "", description = "", size = 0.0, company = "", images = emptyList()))
+            }
+
+            setupAdapter(emptyList())
+            setupObserveEvents()
+        }.root
+
+    private fun setupObserveEvents() {
+        viewModel.shoeList.observe(viewLifecycleOwner, { shoes ->
+            setupAdapter(shoes)
+        })
+    }
+
+    private fun setupAdapter(shoes: List<Shoe>) {
+        val adapter = ShoeAdapter(shoes) { shoe ->
+            setupNavigationAction(shoe)
+        }
+        binding.rvShoeList.adapter = adapter
+        binding.rvShoeList.layoutManager = LinearLayoutManager(activity)
+    }
+
+    private fun setupNavigationAction(shoe: Shoe) {
+        val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment(shoe)
+        view?.findNavController()?.navigate(action)
     }
 
     companion object {
