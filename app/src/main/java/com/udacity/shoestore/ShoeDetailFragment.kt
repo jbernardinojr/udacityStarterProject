@@ -10,12 +10,14 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
 import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.viewmodel.ShoeListViewModel
+import com.udacity.shoestore.viewmodel.ShoeDetailViewModel
 
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding: ShoeDetailFragmentBinding
     private val args: ShoeDetailFragmentArgs by navArgs()
+
+    private val viewModel: ShoeDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,12 +63,12 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun showShoe(shoe: Shoe) {
-        if (!shoe.name.isNullOrBlank() && !shoe.name.isNullOrEmpty()) {
+/*        if (!shoe.name.isNullOrBlank() && !shoe.name.isNullOrEmpty()) {
             binding.edtShoeName.setText(shoe.name)
             binding.edtDescription.setText(shoe.description)
             binding.edtManufactoryName.setText(shoe.company)
             binding.edtShoeSize.setText(shoe.size.toString())
-        }
+        }*/
     }
 
     companion object {
