@@ -3,41 +3,71 @@ package com.udacity.shoestore.viewmodel
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.databinding.PropertyChangeRegistry
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.BR
+import com.udacity.shoestore.models.Shoe
 
-class ShoeDetailViewModel: ViewModel() , Observable {
+class ShoeDetailViewModel : ViewModel(), Observable {
 
-    @get:Bindable
-    var name: String = ""
+    @Bindable
+    var name = MutableLiveData<String>()
         set(value) {
             field = value
             notifyPropertyChanged(BR.name)
         }
 
-    @get:Bindable
-    var description: String = ""
-        set(value) {
-            field = value
-            notifyPropertyChanged(BR.description)
-        }
-
-    @get:Bindable
-    var company: String = ""
+    @Bindable
+    var company = MutableLiveData<String>()
         set(value) {
             field = value
             notifyPropertyChanged(BR.company)
         }
 
+    @Bindable
+    var description = MutableLiveData<String>()
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.description)
+        }
+
+    @Bindable
+    var size = MutableLiveData<Double>()
+    set(value) {
+        field = value
+        notifyPropertyChanged(BR.size)
+    }
+
+    private val _saveShoe = MutableLiveData<Shoe>()
+    val saveShoe: LiveData<Shoe>
+        get() = _saveShoe
+
+    private val _cancelAction = MutableLiveData<Boolean>()
+    val cancelAction: LiveData<Boolean>
+        get() = _cancelAction
+
+
+    fun onSave() {
+        println("<<<<")
+        _saveShoe.value = Shoe(name.value, 0.0, company.value, description.value, emptyList())
+    }
+
+    fun onCancel() {
+        _cancelAction.value = true
+    }
+
     private val callbacks: PropertyChangeRegistry = PropertyChangeRegistry()
 
     override fun addOnPropertyChangedCallback(
-        callback: Observable.OnPropertyChangedCallback) {
+        callback: Observable.OnPropertyChangedCallback
+    ) {
         callbacks.add(callback)
     }
 
     override fun removeOnPropertyChangedCallback(
-        callback: Observable.OnPropertyChangedCallback) {
+        callback: Observable.OnPropertyChangedCallback
+    ) {
         callbacks.remove(callback)
     }
 
@@ -59,8 +89,11 @@ class ShoeDetailViewModel: ViewModel() , Observable {
         callbacks.notifyCallbacks(this, fieldId, null)
     }
 
-
-
+    fun showShoe(shoe: Shoe) {
+        name.value = shoe.name
+        company.value = shoe.company
+        description.value = shoe.description
+    }
 
 
 }

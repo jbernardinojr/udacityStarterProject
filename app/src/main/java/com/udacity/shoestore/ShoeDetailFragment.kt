@@ -28,52 +28,23 @@ class ShoeDetailFragment : Fragment() {
 
             lifecycleOwner = viewLifecycleOwner
             binding = this
+            vm = viewModel
 
-            args.shoe?.let { showShoe(it) }
-            
-            binding.btnSave.setOnClickListener { view: View ->
-                val newShoe = onSaveShoe(ACTION_SAVE)
-                val action =
-                    ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(newShoe)
-                view.findNavController().navigate(action)
-            }
+            args.shoe?.let { viewModel.showShoe(it) }
 
-            binding.btnCancel.setOnClickListener { view: View ->
-                val emptyShoe = onSaveShoe(ACTION_CANCEL)
-                view.findNavController().navigate(
-                    ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(
-                        emptyShoe
-                    )
-                )
-            }
+            setupObservers()
         }
         .root
 
-    private fun onSaveShoe(typeAction: Int): Shoe {
-        var newShoe = Shoe("", 0.0, "", "", emptyList())
+    private fun setupObservers() {
+        viewModel.saveShoe.observe(viewLifecycleOwner, { shoe ->
+            val action = ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(shoe)
+            view?.findNavController()?.navigate(action)
+        })
 
-        if (typeAction == ACTION_SAVE) {
-            newShoe.name = binding.edtShoeName.text.toString()
-            newShoe.description = binding.edtDescription.text.toString()
-            newShoe.company = binding.edtManufactoryName.text.toString()
-            newShoe.size = binding.edtShoeSize.text.toString().toDouble()
-        }
-
-        return newShoe
+        viewModel.cancelAction.observe(viewLifecycleOwner, { isCancel ->
+            val action = ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(Shoe("", 0.0, "", "", emptyList()))
+            view?.findNavController()?.navigate(action)
+        })
     }
-
-    private fun showShoe(shoe: Shoe) {
-/*        if (!shoe.name.isNullOrBlank() && !shoe.name.isNullOrEmpty()) {
-            binding.edtShoeName.setText(shoe.name)
-            binding.edtDescription.setText(shoe.description)
-            binding.edtManufactoryName.setText(shoe.company)
-            binding.edtShoeSize.setText(shoe.size.toString())
-        }*/
-    }
-
-    companion object {
-        private val ACTION_SAVE = 0
-        private val ACTION_CANCEL = 1
-    }
-
 }
