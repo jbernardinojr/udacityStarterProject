@@ -34,10 +34,10 @@ class ShoeDetailViewModel : ViewModel(), Observable {
 
     @Bindable
     var size = MutableLiveData<Double>()
-    set(value) {
-        field = value
-        notifyPropertyChanged(BR.size)
-    }
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.size)
+        }
 
     private val _saveShoe = MutableLiveData<Shoe>()
     val saveShoe: LiveData<Shoe>
@@ -49,8 +49,7 @@ class ShoeDetailViewModel : ViewModel(), Observable {
 
 
     fun onSave() {
-        println("<<<<")
-        _saveShoe.value = Shoe(name.value, 0.0, company.value, description.value, emptyList())
+        _saveShoe.value = Shoe(name.value, size.value, company.value, description.value, emptyList())
     }
 
     fun onCancel() {
@@ -93,6 +92,7 @@ class ShoeDetailViewModel : ViewModel(), Observable {
         name.value = shoe.name
         company.value = shoe.company
         description.value = shoe.description
+        size.value = shoe.size
     }
 
 

@@ -12,10 +12,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
+import com.udacity.shoestore.viewmodel.ShoesListViewModelFactory
 
 class ShoeListFragment : Fragment() {
 
-    private val viewModel: ShoeListViewModel by viewModels()
+    private var listShoe: MutableList<Shoe> = mutableListOf(
+        Shoe("Shoe 1", 30.0, "Nike", "Beautiful nike Shoe", emptyList()),
+        Shoe("Shoe 2", 31.0, "Adidas", "Beautiful Adidas Shoe", emptyList()),
+        Shoe("Shoe 3", 32.0, "Rebook", "Beautiful Rebook Shoe", emptyList())
+    )
+
+    private val viewModel: ShoeListViewModel by viewModels {
+        ShoesListViewModelFactory(listShoe)
+    }
+
     private val args: ShoeListFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentShoeListBinding

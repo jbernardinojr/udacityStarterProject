@@ -43,8 +43,11 @@ class ShoeDetailFragment : Fragment() {
         })
 
         viewModel.cancelAction.observe(viewLifecycleOwner, { isCancel ->
-            val action = ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(Shoe("", 0.0, "", "", emptyList()))
-            view?.findNavController()?.navigate(action)
+            if (isCancel) {
+                val action =
+                    ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(null)
+                view?.findNavController()?.navigate(action)
+            }
         })
     }
 }

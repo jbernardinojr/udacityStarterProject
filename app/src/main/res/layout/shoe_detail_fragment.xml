@@ -6,6 +6,9 @@
     <data>
         <import type="com.udacity.shoestore.Converter"/>
         <variable
+            name="converter"
+            type="com.udacity.shoestore.Converter" />
+        <variable
             name="vm"
             type="com.udacity.shoestore.viewmodel.ShoeDetailViewModel" />
     </data>
@@ -60,7 +63,7 @@
             android:layout_margin="16dp"
             android:inputType="number"
             android:hint="@string/hint_shoe_size"
-            android:text="@={Converter.setText(vm.size)}"
+            android:text="@={Converter.doubleToString(vm.size)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtManufactoryName" />
