@@ -4,10 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <import type="com.udacity.shoestore.Converter"/>
+        <import type="com.udacity.shoestore.viewmodel.Converter"/>
         <variable
             name="converter"
-            type="com.udacity.shoestore.Converter" />
+            type="com.udacity.shoestore.viewmodel.Converter" />
         <variable
             name="vm"
             type="com.udacity.shoestore.viewmodel.ShoeListViewModel" />
