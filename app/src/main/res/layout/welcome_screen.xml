@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="welcomeViewModel"
-            type="com.udacity.shoestore.viewmodel.WelcomeViewModel" />
-    </data>
-
     <!-- Using Constraint Layout here because of differents positions in the screen -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

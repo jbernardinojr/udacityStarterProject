@@ -10,7 +10,7 @@
             type="com.udacity.shoestore.Converter" />
         <variable
             name="vm"
-            type="com.udacity.shoestore.viewmodel.ShoeDetailViewModel" />
+            type="com.udacity.shoestore.viewmodel.ShoeListViewModel" />
     </data>
 
     <!-- Using Constraint Layout here because of different views and alignments -->

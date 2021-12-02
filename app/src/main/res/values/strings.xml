@@ -28,4 +28,11 @@
     <string name="instructions">Instructions</string>
     <string name="shoes">Shoes</string>
     <string name="shoe_detail">Shoe Detail</string>
+    <string name="logout_menu">Logout</string>
+    <string name="shoe_listing_format"> Shoe Name : %s \n
+                                        Company Name : %s \n
+                                        Price : %s \n
+                                        Description :%s</string>
+    <string name="msg_shoe_save_success">Shoe Saved</string>
+    <string name="login_title">Login</string>
 </resources>

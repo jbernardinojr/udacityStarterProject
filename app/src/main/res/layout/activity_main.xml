@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                app:menu="@menu/main_menu" />
+                app:menu="@menu/logout_menu" />
         </LinearLayout>
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

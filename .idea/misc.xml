@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/layout/fragment_instructions.xml" value="0.1" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/layout/fragment_shoe_list.xml" value="0.16438703140830802" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/layout/instructions.xml" value="0.1" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/layout/shoe_item_list.xml" value="0.1" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/layout/shoe_list_item.xml" value="0.1" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/layout/welcome_screen.xml" value="0.1" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/menu/logout_menu.xml" value="0.1" />
+        <entry key="..\:/Users/jbern/Documents/GitHub/udacityStarterProject/app/src/main/res/menu/main_menu.xml" value="0.1" />
         <entry key="..\:/Users/nsd_jsilva/Documents/repos/udacityStarterProject/app/src/main/res/layout/activity_main.xml" value="0.2826086956521739" />
         <entry key="..\:/Users/nsd_jsilva/Documents/repos/udacityStarterProject/app/src/main/res/layout/fragment_instructions.xml" value="0.5" />
         <entry key="..\:/Users/nsd_jsilva/Documents/repos/udacityStarterProject/app/src/main/res/layout/fragment_login.xml" value="0.19791666666666666" />
